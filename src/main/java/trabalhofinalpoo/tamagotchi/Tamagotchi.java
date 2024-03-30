@@ -176,6 +176,12 @@ class Tamagotchi {
         // TODO: esperar 30 segundos para medicar novamente
     }
     
+    /* TODO: minigame
+    
+    public void minigame() {
+        
+    }*/
+    
     public void status() {
 
         System.out.print("Energia: " + this.energia);
