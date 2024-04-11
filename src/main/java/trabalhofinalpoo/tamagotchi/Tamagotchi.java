@@ -6,7 +6,8 @@
 package trabalhofinalpoo.tamagotchi;
 
 import java.util.Scanner;
-
+import java.util.Random;
+        
 /**
  *
  * @author negreirosdrummer, deyvideugenio, Antony2804, raphassoares
@@ -176,11 +177,45 @@ class Tamagotchi {
         // TODO: esperar 30 segundos para medicar novamente
     }
     
-    /* TODO: minigame
-    
     public void minigame() {
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.println("PEDRA PAPEL E TESOURA");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=");
+
+        String[] lista = {"Pedra", "Papel", "Tesoura"};
+        System.out.println("1 - PEDRA\n2 - PAPEL\n3 - TESOURA");
+        System.out.print("\nDigite o número da opção desejada: ");
         
-    }*/
+        Scanner scanner = new Scanner(System.in);
+        int jogador = scanner.nextInt() - 1;
+        int tamagotchi = new Random().nextInt(3);
+
+        System.out.println("\nJO");
+        sleep(500);
+        System.out.println("KEN");
+        sleep(500);
+        System.out.println("PO!\n");
+        sleep(500);
+
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.println("Você escolheu " + lista[jogador]);
+        System.out.println(this.nome + " escolheu " + lista[tamagotchi]);
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+
+        if (jogador == tamagotchi) {
+            System.out.println("\nEMPATE!\n");
+        } else if ((jogador == 0 && tamagotchi == 2) ||
+                   (jogador == 1 && tamagotchi == 0) ||
+                   (jogador == 2 && tamagotchi == 1)) {
+            System.out.println("\nVOCÊ GANHOU! Felicidade: -1\n");
+            this.felicidade -= 1;
+        } else {
+            System.out.print("\n" + this.nome.toUpperCase() + " GANHOU! ");
+            System.out.println("Felicidade: +1\n");
+            this.felicidade += 1;
+        }
+        sleep(4000);
+    }
     
     public void status() {
 
@@ -262,6 +297,7 @@ class Tamagotchi {
             System.out.println("5 - Dormir");
             System.out.println("6 - Medicar");
             System.out.println("7 - Exibir Status");
+            System.out.println("8 - Minigame");
             System.out.println("0 - Sair");
             op = sc.nextInt();
             System.out.println();
@@ -286,6 +322,9 @@ class Tamagotchi {
                     break;
                 case 7:
                     t1.status();
+                    break;
+                case 8:
+                    t1.minigame();
                     break;
                 default:
                     System.out.println("Digite uma opção válida!");
